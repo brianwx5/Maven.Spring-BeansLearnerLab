@@ -1,5 +1,5 @@
-# Bean Flavored Learner Lab
-* **Objective** - to register a `Classroom` bean which _mediates_ a _composite_ `Students` and `Instructors` bean reference.
+# Bean Flavored com.example.SpringBeansLearnerLab.Learner Lab
+* **Objective** - to register a `com.example.SpringBeansLearnerLab.Classroom` bean which _mediates_ a _composite_ `com.example.SpringBeansLearnerLab.Students` and `com.example.SpringBeansLearnerLab.Instructors` bean reference.
 * **Purpose** - to demonstrate the use of
 	* Bean registration
 	* Dependency Injection
@@ -32,66 +32,66 @@
 * Open the project via its `pom.xml` from IntelliJ > File > Open
 	* Be sure to `Open as Project` when prompted 
 
-### Part 1.0 - Create `Person` Class
-* Create a `Person` class.
+### Part 1.0 - Create `com.example.SpringBeansLearnerLab.Person` Class
+* Create a `com.example.SpringBeansLearnerLab.Person` class.
 	* The class should declare a `final` field named `id` of type `long`.
 	* The class should declare a field named `name` of type `String`.	
-	* `Person` constructor should have a parameter of type `Long id, String name` which sets each of the fields to their respective value.
-	* The class should define a `getId()` method which returns the `Person` object's `id` field.
-	* The class should define a `getName()` method which returns the `Person` object's `name` field.
-	* The class should define a `setName()` method which sets the `Person` object's `name` field.
+	* `com.example.SpringBeansLearnerLab.Person` constructor should have a parameter of type `Long id, String name` which sets each of the fields to their respective value.
+	* The class should define a `getId()` method which returns the `com.example.SpringBeansLearnerLab.Person` object's `id` field.
+	* The class should define a `getName()` method which returns the `com.example.SpringBeansLearnerLab.Person` object's `name` field.
+	* The class should define a `setName()` method which sets the `com.example.SpringBeansLearnerLab.Person` object's `name` field.
 
 -
-### Part 2.0 - Create `Learner` Interface
-* Create a `Learner` interface.
-	* `Learner` should declare one method signature:
+### Part 2.0 - Create `com.example.SpringBeansLearnerLab.Learner` Interface
+* Create a `com.example.SpringBeansLearnerLab.Learner` interface.
+	* `com.example.SpringBeansLearnerLab.Learner` should declare one method signature:
 		* Method name: `learn`
 		* Method parameters: `double numberOfHours`
 		* Method return-type: `void`
 
 -
-### Part 3.0 - Create `Student` Class
-* Create a `Student` class such that:
-	* `Student` is a subclass of `Person`
-	* `Student` implements the `Learner` interface
-	* `Student` should have an instance variable `totalStudyTime` of type `double`
-	* `Student` should have a concrete implementation of the `learn` method which increments the `totalStudyTime` variable by the specified `numberOfHours` argument.
-	* `Student` should have a `getTotalStudyTime()` method which returns the `totalStudyTime` instance variable.
+### Part 3.0 - Create `com.example.SpringBeansLearnerLab.Student` Class
+* Create a `com.example.SpringBeansLearnerLab.Student` class such that:
+	* `com.example.SpringBeansLearnerLab.Student` is a subclass of `com.example.SpringBeansLearnerLab.Person`
+	* `com.example.SpringBeansLearnerLab.Student` implements the `com.example.SpringBeansLearnerLab.Learner` interface
+	* `com.example.SpringBeansLearnerLab.Student` should have an instance variable `totalStudyTime` of type `double`
+	* `com.example.SpringBeansLearnerLab.Student` should have a concrete implementation of the `learn` method which increments the `totalStudyTime` variable by the specified `numberOfHours` argument.
+	* `com.example.SpringBeansLearnerLab.Student` should have a `getTotalStudyTime()` method which returns the `totalStudyTime` instance variable.
 
 
 -
-### Part 4.0 - Create `Teacher` Interface
-* Create a `Teacher` interface.
-	* `Teacher` should declare a `teach` method signature:
+### Part 4.0 - Create `com.example.SpringBeansLearnerLab.Teacher` Interface
+* Create a `com.example.SpringBeansLearnerLab.Teacher` interface.
+	* `com.example.SpringBeansLearnerLab.Teacher` should declare a `teach` method signature:
 		* Method name: `teach`
 		* Method parameters:
-			* `Learner learner`
+			* `com.example.SpringBeansLearnerLab.Learner learner`
 			* `double numberOfHours`
 		* Method return-type: `void` 
 
-	* `Teacher` should declare a `lecture` method signature:
+	* `com.example.SpringBeansLearnerLab.Teacher` should declare a `lecture` method signature:
 		* Method name: `lecture`
 		* Method parameters:
-			* `Iterable<? extends Learner> learners`
+			* `Iterable<? extends com.example.SpringBeansLearnerLab.Learner> learners`
 			* `double numberOfHours`
 		* Method return-type: `void`
 
 		
 -
-### Part 5.0 - Create `Instructor` Class
-* Create an `Instructor` class such that:
-	* `Instructor` is a subclass of `Person`
-	* `Instructor` implements the `Teacher` interface
-	* `Instructor` should have a concrete implementation of the `teach` method which invokes the `learn` method on the specified `Learner` object.
-	* `Instructor` should have a concrete implementation of the `lecture` method which invokes the `learn` method on each of the elements in the specified array of `Learner` objects.
+### Part 5.0 - Create `com.example.SpringBeansLearnerLab.Instructor` Class
+* Create an `com.example.SpringBeansLearnerLab.Instructor` class such that:
+	* `com.example.SpringBeansLearnerLab.Instructor` is a subclass of `com.example.SpringBeansLearnerLab.Person`
+	* `com.example.SpringBeansLearnerLab.Instructor` implements the `com.example.SpringBeansLearnerLab.Teacher` interface
+	* `com.example.SpringBeansLearnerLab.Instructor` should have a concrete implementation of the `teach` method which invokes the `learn` method on the specified `com.example.SpringBeansLearnerLab.Learner` object.
+	* `com.example.SpringBeansLearnerLab.Instructor` should have a concrete implementation of the `lecture` method which invokes the `learn` method on each of the elements in the specified array of `com.example.SpringBeansLearnerLab.Learner` objects.
 		* `numberOfHours` should be evenly split amongst the learners.
 			* `double numberOfHoursPerLearner = numberOfHours / learners.length;`
 
-### Part 6.0 - Create `People`
-* Create an abstract `People` class
-	* The class signature should be parameterized with `PersonType` such that `PersonType` is a sub class of `Person`.
+### Part 6.0 - Create `com.example.SpringBeansLearnerLab.People`
+* Create an abstract `com.example.SpringBeansLearnerLab.People` class
+	* The class signature should be parameterized with `PersonType` such that `PersonType` is a sub class of `com.example.SpringBeansLearnerLab.Person`.
 	* The class should implement `Iterable` of type `PersonType`.
-	* Upon construction `People` should consume a `List` of `PersonType` and set it to a respective `personList` field.
+	* Upon construction `com.example.SpringBeansLearnerLab.People` should consume a `List` of `PersonType` and set it to a respective `personList` field.
 	* The class should define a constructor which consumes a variable number of `PersonType` objects and sets the `personList` field respectively.
 	* The class should define a method named `add` which adds a `PersonType` to the `personList`.
 	* The class should define a method named `remove` which removes a `PersonType` from the `personList`.
@@ -104,31 +104,31 @@
 
 
 -
-### Part 7.0 - Create `Students` 
-* Create a `Students` class.
-	* The class should be a subclass of `People` of parameterized type `Student`.
-	* The class should consume a variable number of `Student` objects upon construction and pass them to the super constructor.
+### Part 7.0 - Create `com.example.SpringBeansLearnerLab.Students` 
+* Create a `com.example.SpringBeansLearnerLab.Students` class.
+	* The class should be a subclass of `com.example.SpringBeansLearnerLab.People` of parameterized type `com.example.SpringBeansLearnerLab.Student`.
+	* The class should consume a variable number of `com.example.SpringBeansLearnerLab.Student` objects upon construction and pass them to the super constructor.
 
 -
-### Part 8.0 - Create `Instructors` 
-* Create a `Instructors` class.
-	* The class should be a subclass of `People` of parameterized type `Instructor`.
-	* The class should consume a variable number of `Instructor` objects upon construction and pass them to the super constructor.
+### Part 8.0 - Create `com.example.SpringBeansLearnerLab.Instructors` 
+* Create a `com.example.SpringBeansLearnerLab.Instructors` class.
+	* The class should be a subclass of `com.example.SpringBeansLearnerLab.People` of parameterized type `com.example.SpringBeansLearnerLab.Instructor`.
+	* The class should consume a variable number of `com.example.SpringBeansLearnerLab.Instructor` objects upon construction and pass them to the super constructor.
 
 
 
 -
-### Part 9.0 - Create `Classroom`
-* Create a `Classroom` class.
-	* The class should consume and set composite reference to an `Instructors` and `Students` object upon construction
-	* The class should define a method `hostLecture` which makes use of a `Teacher teacher, double numberOfHours` parameter to host a `lecture` to the composite `personList` field in the `students` reference.
+### Part 9.0 - Create `com.example.SpringBeansLearnerLab.Classroom`
+* Create a `com.example.SpringBeansLearnerLab.Classroom` class.
+	* The class should consume and set composite reference to an `com.example.SpringBeansLearnerLab.Instructors` and `com.example.SpringBeansLearnerLab.Students` object upon construction
+	* The class should define a method `hostLecture` which makes use of a `com.example.SpringBeansLearnerLab.Teacher teacher, double numberOfHours` parameter to host a `lecture` to the composite `personList` field in the `students` reference.
 	
 
 -
 ## Part 10.0 - Creating `Configuration` classes
 * Each of the following `Config` classes should have a class-signature annotation of `@Configuration`
 	* this annotation tells spring to scan for `@Bean` definitions within the scope of the class, and register them to the [IOC Container](https://www.tutorialspoint.com/spring/spring_ioc_containers.htm) for `Inject` and `Autowire` use later.
-* Classroom should define getters for each of its fields.
+* com.example.SpringBeansLearnerLab.Classroom should define getters for each of its fields.
 
 ### Developmental Notes
 * `@Autowired`
@@ -147,28 +147,28 @@
 
 
 -
-### Part 10.1 - Create `StudentConfig`
+### Part 10.1 - Create `com.example.SpringBeansLearnerLab.StudentConfig`
 * **Note:** The creation of this class will demonstrate an implementation of _bean registration_ in Spring.
-* The class should define a method named `currentStudents()` which returns a `Students` representative of the current cohort of students.
+* The class should define a method named `currentStudents()` which returns a `com.example.SpringBeansLearnerLab.Students` representative of the current cohort of students.
 	* the method should be annotated with `@Bean(name = "students")`
 		* this ensures the Spring container registers the bean with the respective name.
 		* a `@Bean` whose `name` attribute is not specified defaults to the name of the method it is annotating.
-* The class should define a bean named `previousStudents()` which returns a `Students` representative of the previous cohort of students.	
+* The class should define a bean named `previousStudents()` which returns a `com.example.SpringBeansLearnerLab.Students` representative of the previous cohort of students.	
 
 -
-### Part 10.2 - Create `InstructorsConfig`
-* The class should define a bean named `tcUsaInstructors()` which returns an `Instructors` representative of the Tech Connect USA instructors.
-* The class should define a bean named `tcUkInstructors()` which returns an `Instructors` representative of the Tech Connect UK instructors.
-* The class should define a bean named `instructors` which returns all `Instructors` employed at ZipCodeWilmington
+### Part 10.2 - Create `com.example.SpringBeansLearnerLab.InstructorsConfig`
+* The class should define a bean named `tcUsaInstructors()` which returns an `com.example.SpringBeansLearnerLab.Instructors` representative of the Tech Connect USA instructors.
+* The class should define a bean named `tcUkInstructors()` which returns an `com.example.SpringBeansLearnerLab.Instructors` representative of the Tech Connect UK instructors.
+* The class should define a bean named `instructors` which returns all `com.example.SpringBeansLearnerLab.Instructors` employed at ZipCodeWilmington
 	* annotate this bean with `@Primary`
 		* this ensures Spring will inject this bean in the case that an `Autowire` annotation is not supplied with a `Qualifier` annotation
 
 
 
 -
-### Part 10.3 - Create `ClassroomConfig`
-* The class should define a bean named `currentCohort()` which returns a `Classroom` object whose dependencies are `instructors` and `students`
-* The class should define a bean named `previousCohort()` which returns an `Classroom` object whose dependencies are `instructors` and `previousStudents`
+### Part 10.3 - Create `com.example.SpringBeansLearnerLab.ClassroomConfig`
+* The class should define a bean named `currentCohort()` which returns a `com.example.SpringBeansLearnerLab.Classroom` object whose dependencies are `instructors` and `students`
+* The class should define a bean named `previousCohort()` which returns an `com.example.SpringBeansLearnerLab.Classroom` object whose dependencies are `instructors` and `previousStudents`
 * **Note:** [it is sometimes useful](https://www.boraji.com/spring-dependson-annotation-example) (although not always necessary) to use the `@DependsOn` annotation to help the Spring framework and other readers of the code to understand what order beans should be executed.
 	* `@DependsOn({"instructors", "students"})`
 
@@ -189,10 +189,10 @@
 
 
 -
-### Part 11.1 - Test `StudentConfig` Class
+### Part 11.1 - Test `com.example.SpringBeansLearnerLab.StudentConfig` Class
 * Create a `TestStudentConfig` class in the `test` package.
-* The class should ensure that each `Bean` in the `StudentConfig` class is configured as expected.
-* **Tip:** You can use the `toString` method to get a representation of the aggregate state of any `People` object.
+* The class should ensure that each `Bean` in the `com.example.SpringBeansLearnerLab.StudentConfig` class is configured as expected.
+* **Tip:** You can use the `toString` method to get a representation of the aggregate state of any `com.example.SpringBeansLearnerLab.People` object.
 
 
 -
@@ -202,7 +202,7 @@
 
 
 -
-### Part 11.3 - Test `ClassroomConfig` Class
+### Part 11.3 - Test `com.example.SpringBeansLearnerLab.ClassroomConfig` Class
 * Create a `TestClassroomConfig` class in the `test` package.
 * The class should ensure that each `Bean` in the `TestClassroomConfig` class is configured as expected.
 
@@ -218,15 +218,15 @@
 
 -
 ### Part 11.1 - Create `Alumni` Class
-* Create an `Alumni` component which autowires `Students` of the previous cohort and `Instructors`
-* Create an `executeBootcamp` method which teaches each `Student` in the composite `Students` a `totalNumberOfHours` of `1200`.
+* Create an `Alumni` component which autowires `com.example.SpringBeansLearnerLab.Students` of the previous cohort and `com.example.SpringBeansLearnerLab.Instructors`
+* Create an `executeBootcamp` method which teaches each `com.example.SpringBeansLearnerLab.Student` in the composite `com.example.SpringBeansLearnerLab.Students` a `totalNumberOfHours` of `1200`.
 	* Annotate this method with `@PostConstruct`
 		* denotes that this method must be executed before the class is put into an IoC container
 * Create a getter for each of the fields.
 
 -
 ### Part 11.2 - Test `Alumni` Class
-* Write a test class which ensures that each `Student` in the `Alumni` class has been taught `1200` hours upon injection of the `Alumni` dependency.
+* Write a test class which ensures that each `com.example.SpringBeansLearnerLab.Student` in the `Alumni` class has been taught `1200` hours upon injection of the `Alumni` dependency.
 * Ensure the `numberOfHoursTaught` has been evenly distributed amongst each of the instructors.
 
 * **Tip:** How to derive `numberOfHoursTaught` dynamically
